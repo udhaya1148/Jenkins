@@ -29,8 +29,8 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                         sh """
                         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-                        docker build -t $DOCKER_IMAGE .
-                        docker push $DOCKER_IMAGE
+                        sudo docker build -t $DOCKER_IMAGE .
+                        sudo docker push $DOCKER_IMAGE
                         """
                     }
                 }
