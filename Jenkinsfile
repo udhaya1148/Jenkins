@@ -45,7 +45,8 @@ pipeline {
                     sh 'export KUBECONFIG=kubeconfig'
 
                     // Apply Kubernetes manifests
-                    sh 'kubectl apply -f k8s/'
+                    sh 'kubectl create namespace jenkins-udhaya'
+                    sh 'kubectl apply -f k8s/ -n jenkins-udhaya'
                 }
             }
         }
